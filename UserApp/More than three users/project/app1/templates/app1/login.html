@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Login page {% endblock %}
+
+{% block body %}
+    <!-- User is live -->
+    {% if not request.user.is_authenticated %}
+        <div class="entry-links">
+            <div class="container">
+            <!-- Login -->
+            {% if messages %}
+                <div class="alert">
+                    <div class="container">
+                        {% for message in messages %}
+                            <div class="alert text-warning alert-warning">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="login-text">
+                <div class="container">
+                    <h2>Login Page</h2>
+                </div>
+            </div>
+            <div class="login-page">
+                <div class="container">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Login" class="btn btn-primary">
+                        <!-- Register -->
+                        <a class="btn btn-warning" href="{% url 'app1:register' %}">register</a>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        {% else %}
+        <!-- Logout -->
+        <div class="logout">
+            <div class="container">
+                <a href="{% url 'app1:logout' %}">Logout!</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

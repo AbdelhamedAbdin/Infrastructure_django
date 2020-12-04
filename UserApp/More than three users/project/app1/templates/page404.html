@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error .center {
+            text-align: center;
+        }
+        .error .cutter {
+            content: "";
+            border: 1px solid #000;
+            width: 100%
+        }
+    </style>
+</head>
+<body>
+    <div class="error">
+        <h1 class="heading-error center">Error 404</h1>
+        <div class="cutter"></div>
+        <div class="center">{{ error }}</div>
+    </div>
+</body>
+</html>

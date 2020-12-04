@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} {{ request.user.get_full_name }} {% endblock %}
+{% block body %}
+    <!-- General auth -->
+    {% if request.user.is_authenticated %}
+{#        {% if not perms.accounts.view_user %}#}
+            <div class="profile">
+                <div class="container">
+                    <ul>
+                        <li>{{ userprofile.user.get_full_name }}</li>
+                    </ul>
+                    <a>
+                        <form action="{% url 'accounts:delete_user' request.user.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="delete_user" value="{{ request.user.id }}">
+                            <input class="btn btn-danger" type="submit" value="Remove Account">
+                        </form>
+                    </a>
+                </div>
+            </div>
+{#        {% endif %}#}
+    {% endif %}
+{% endblock %}

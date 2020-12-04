@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %} Base file {% endblock %}</title>
+        {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- First Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'index/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'index/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'index/css/style.css' %}" />
+    <script src="{% static 'index/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'index/js/respond.min.js' %}"></script>
+    </head>
+    <body>
+
+        <script src="{% static 'index/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'index/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'index/js/custom.js' %}"></script>
+    </body>
+    {% block body %}
+    {% endblock %}
+</html>
